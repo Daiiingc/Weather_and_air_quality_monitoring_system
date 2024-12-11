@@ -18,7 +18,7 @@ Video demo: [video_demo](https://youtu.be/qplAFM0V6wE)
 - Nền tảng Grafana
 
 ## Sơ đồ khối
-Sơ đồ khối
+
 <img src = "https://github.com/Daiiingc/Weather_and_air_quality_monitoring_system/blob/main/image/so_do_khoi.png">
 
 ## Giới thiệu phần mềm
@@ -27,20 +27,18 @@ Grafana là một nền tảng mã nguồn mở được sử dụng để giám
 
 Ta có thể hiểu đơn giản là sau khi lấy được thông tin số liệu từ các thiết bị, Grafana sẽ sử dụng các dữ liệu đó để phân tích và tạo ra dashboard mô tả trực quan các thông tin số liệu cần thiết cho việc điều khiển, giám sát. Grafana là một nền tảng nằm trên lớp ứng dụng người dùng của hệ thống IoT. 
 
-Cài đặt Grafana trên Raspberry Pi 3: file .txt
+Cài đặt Grafana trên Raspberry Pi 3: [link](https://github.com/Daiiingc/Weather_and_air_quality_monitoring_system/blob/main/c%C3%A0i%20%C4%91%E1%BA%B7t%20Grafana%20tr%C3%AAn%20raspberry%20pi.txt)
 
 ### InfluxDB
 InfluxDB là một cơ sở dữ liệu chuỗi thời gian mã nguồn mở (TSDB) do InfluxData phát triển. Cơ sở dữ liệu này được tối ưu hóa để lưu trữ và truy xuất dữ liệu chuỗi thời gian nhanh chóng, có tính ứng dụng cao trong các lĩnh vực như giám sát hoạt động, dữ liệu hiệu suất ứng dụng, dữ liệu cảm biến IoT và phân tích thời gian thực. Grafana có hỗ trợ tích hợp cho InfluxDB.
 
-Cơ sở dữ liệu có thể lưu trữ hàng nghìn điểm dữ liệu mỗi giây, khiến nó trở nên hoàn hảo cho các ứng dụng công nghiệp.
-
-Cài đặt InfluxDB trên Raspberry Pi 3: file .txt
+Cài đặt InfluxDB trên Raspberry Pi 3: [link](https://github.com/Daiiingc/Weather_and_air_quality_monitoring_system/blob/main/c%C3%A0i%20%C4%91%E1%BA%B7t%20InfluxDB%20tr%C3%AAn%20raspberry%20pi.txt)
 
 ## Code ESP32
 Ta sử dụng ESP32 để code đọc các cảm biến như DHT11 và MQ135, đoạn code có sử dụng các thư viện có sẵn.
 Sau đó, ta code phần đoạn kết nối ESP32 đến cơ sở dữ liệu InfluxDB sử dụng thư viện của cơ sở dữ liệu đó để gửi dữ liệu cảm biến, sử dụng giao thức HTTP để gửi dữ liệu.
 
-Đoạn code được mô tả trong Folder: 
+Đoạn code được mô tả trong Folder: [Code](https://github.com/Daiiingc/Weather_and_air_quality_monitoring_system/tree/main/weather_monitor)
 
 ## Thiết kế dashboard trên nền tảng Grafana
 Qua việc tìm hiểu và tham khảo các dashboard, ta xây dựng một mẫu thiết kế bảng biểu đồ dữ liệu theo ý muốn của bản thân. Trong mỗi bảng biểu đồ, sử dụng câu lệnh truy vấn để lấy các thông tin dữ liệu riêng biệt và trực quan hoá trên biểu đồ. Các biểu đồ được tập hợp và gom lại để tạo nên một dashboard
