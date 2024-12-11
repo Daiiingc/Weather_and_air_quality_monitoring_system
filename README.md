@@ -2,6 +2,9 @@
 Xây dựng một hệ thống thu nhập dữ liệu từ các cảm biến môi trường như nhiệt độ, độ ẩm, nồng độ khí CO2, dữ liệu thu được sẽ lưu trên cơ sở dữ liệu thời gian thực InfluxDB và trực quan hoá dữ liệu trên nền tảng Grafana.
 
 Hệ thống được xây dựng nhằm mục đích ta quan sát các giá trị dữ liệu theo thời gian thực dựa trên các biểu đồ hình, từ đó ta có thể giám sát hệ thống từ xa, đánh giá các thông số đó theo các khoảng thời gian và đưa ra một số thông tin cần thiết về thời tiết và chất lượng không khí.
+
+Video demo: [video_demo](https://youtu.be/qplAFM0V6wE)
+
 ## Phần cứng sử dụng
 - ESP32
 - Raspberry Pi
@@ -15,9 +18,8 @@ Hệ thống được xây dựng nhằm mục đích ta quan sát các giá tr�
 - Nền tảng Grafana
 
 ## Sơ đồ khối
-Mô hình phần cứng
-<image>
 Sơ đồ khối
+<img src = "https://github.com/Daiiingc/Weather_and_air_quality_monitoring_system/blob/main/image/so_do_khoi.png">
 
 ## Giới thiệu phần mềm
 ### Grafana
@@ -34,13 +36,14 @@ Cơ sở dữ liệu có thể lưu trữ hàng nghìn điểm dữ liệu mỗi
 
 Cài đặt InfluxDB trên Raspberry Pi 3: file .txt
 
-Video demo: https://youtu.be/qplAFM0V6wE
-
 ## Code ESP32
 Ta sử dụng ESP32 để code đọc các cảm biến như DHT11 và MQ135, đoạn code có sử dụng các thư viện có sẵn.
 Sau đó, ta code phần đoạn kết nối ESP32 đến cơ sở dữ liệu InfluxDB sử dụng thư viện của cơ sở dữ liệu đó để gửi dữ liệu cảm biến, sử dụng giao thức HTTP để gửi dữ liệu.
 
-## Thiết kế giao diện hiển thị trên nền tảng Grafana
-Qua việc tìm hiểu và tham khảo các mẫu thiết kế, ta xây dựng một mẫu thiết kế bảng biểu đồ dữ liệu theo ý muốn của bản thân.
-Trong mỗi bảng biểu đồ, sử dụng câu lệnh truy vấn để lấy các thông tin dữ liệu và hiển thị lên biểu đồ
-<image>
+Đoạn code được mô tả trong Folder: 
+
+## Thiết kế dashboard trên nền tảng Grafana
+Qua việc tìm hiểu và tham khảo các dashboard, ta xây dựng một mẫu thiết kế bảng biểu đồ dữ liệu theo ý muốn của bản thân. Trong mỗi bảng biểu đồ, sử dụng câu lệnh truy vấn để lấy các thông tin dữ liệu riêng biệt và trực quan hoá trên biểu đồ. Các biểu đồ được tập hợp và gom lại để tạo nên một dashboard
+
+<img src = "https://github.com/Daiiingc/Weather_and_air_quality_monitoring_system/blob/main/image/dashboard.png">
+
