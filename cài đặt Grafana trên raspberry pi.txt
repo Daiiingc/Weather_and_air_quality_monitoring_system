@@ -1,0 +1,17 @@
+Bước 1: Thêm APT key dùng để xác thực các gói:
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+Bước 2: Thêm kho lưu trữ của Grafana APT
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+
+Bước 3: Cài đặt Grafana
+sudo apt update
+sudo apt install grafana
+
+Bước 4: Khởi động máy chủ Grafana
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable grafana-server
+sudo /bin/systemctl start grafana-server
+sudo /bin/systemctl status grafana-server
+
+Grafana hiện đang chạy trên máy và có thể truy cập từ bất kỳ thiết bị nào trên mạng cục bộ. Mở trình duyệt và truy cập vào địa chỉ: http://<IP Address>:3000, trong đó địa chỉ IP là địa chỉ bạn đã sử dụng để kết nối với Raspberry Pi trước đó. Trang đăng nhập Grafana xuất hiện. Đăng nhập vào Grafana bằng tên người dùng mặc định là admin và mật khẩu mặc định là admin. Ta có thể thay đổi mật khẩu của người dùng nếu cần.

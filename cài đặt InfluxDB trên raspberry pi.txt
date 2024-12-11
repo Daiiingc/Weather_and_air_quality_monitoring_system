@@ -1,0 +1,23 @@
+Bước 1: Cập nhật tất cả các gói đã cài đặt trong Raspberry Pi
+sudo apt update
+sudo apt upgrade -y
+
+Bước 2: thêm khóa của kho lưu trữ InfluxDB vào Raspberry Pi
+curl https://repos.influxdata.com/influxdata-archive.key | gpg --dearmor | sudo tee /usr/share/keyrings/influxdb-archive-keyring.gpg >/dev/null
+
+Bước 3: Thêm kho lưu trữ InfluxDB vào danh sách nguồn
+echo "deb [signed-by=/usr/share/keyrings/influxdb-archive-keyring.gpg] https://repos.influxdata.com/debian stable main" | sudo tee /etc/apt/sources.list.d/influxdb.list
+
+Bước 4: Cập nhật lại gói danh sách
+sudo apt update
+
+Bước 5: Cài đặt InfluxDB V2 cho Raspberry Pi
+sudo apt install influxdb2
+
+Bước 6: Khởi động máy chủ InfluxDB
+sudo systemctl unmask influxdb
+sudo systemctl enable influxdb
+sudo systemctl start influxdb
+sudo systemctl status influxdb
+
+InfluxDB hiện đang chạy trên máy và có thể truy cập từ bất kỳ thiết bị nào trên mạng cục bộ. Mở trình duyệt và truy cập vào địa chỉ: http://<IP Address>:8086, trong đó địa chỉ IP là địa chỉ cục bộ bạn đã sử dụng để kết nối với Raspberry Pi trước đó. Tạo tài khoản InfluxDB theo hướng dẫn và vào trang giao diện chính của máy chủ.
